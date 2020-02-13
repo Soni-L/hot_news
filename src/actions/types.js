@@ -1,0 +1,2 @@
+export const CREATE_NEWS_ARTICLE = 'CREATE_NEWS_ARTICLE';
+export const FETCH_NEWS = 'FETCH_NEWS';
