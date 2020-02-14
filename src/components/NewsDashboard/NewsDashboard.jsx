@@ -1,30 +1,26 @@
-import React, { Component } from "./node_modules/react";
+import React, { Component } from 'react';
 
-import { connect } from "./node_modules/react-redux";
-import { Table, Divider, Tag, Button } from "./node_modules/antd";
-import { createArticle } from "../../actions/newsActions";
-import axios from "./node_modules/axios";
-
-import "./node_modules/antd/dist/antd.css";
+import { connect } from 'react-redux';
+import { createArticle } from '../../actions/newsActions';
 
 export class NewsDashboard extends Component {
-    componentDidMount() {
-       console.log(this.state);
-    }
+  componentDidMount() {
+    console.log(this.props.news);
+  }
 
-    render() {
-        return (
-            <div className="jumbotron jumbotron-fluid mt-5 text-center">
-                <h1 className="display-4 mb-3">Dis is da News!</h1>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="jumbotron jumbotron-fluid mt-5 text-center">
+        <h1 className="display-4 mb-3">test!</h1>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-    news: state.news
+  news: state.news
 });
 
 export default connect(mapStateToProps, {
-    createArticle,
+  createArticle
 })(NewsDashboard);

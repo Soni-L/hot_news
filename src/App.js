@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { Switch, HashRouter as Router, Route } from 'react-router-dom';
 
 import './App.css';
 
 import Navbar from './components/layout/Navbar';
+import HomePage from './components/HomePage/HomePage';
 import NewsDashboard from './components/NewsDashboard/NewsDashboard';
+import NewArticle from './components/NewArticle/NewArticle';
 
 import store from './store';
+import EditArticle from './components/EditArticle/EditArticle';
 
 class App extends Component {
   render() {
@@ -16,7 +19,12 @@ class App extends Component {
         <Router>
           <div>
             <Navbar />
-            <Route exact path="/" component={NewsDashboard} />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/news" component={NewsDashboard} />
+              <Route exact path="/news/create" component={NewArticle} />
+              <Route exact path="/news/:id" component={EditArticle} />
+            </Switch>
           </div>
         </Router>
       </Provider>
