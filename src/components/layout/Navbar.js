@@ -1,22 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-function Navbar() {
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.hightLight = {backgroundColor: "red"};
+  }
+  
+ render() {
   return (
     <div>
       <nav className="navbar navbar-light bg-dark mb-5">
         <div className="container">
           <div className="navbar-header">
-            <Link className="navbar-brand text-white text-lg brand-text" to="/">
-              HOME
+            <Link style={this.props.location.pathname.toString() == '/' ? this.hightLight : {}} className="navbar-brand text-white text-lg brand-text" to="/">
+             HOME
             </Link>
-            <Link
+            <Link style={this.props.location.pathname.toString() == '/news' ? this.hightLight : {} }
               className="navbar-brand text-white text-lg brand-text"
-              to="/news/"
+              to="/news"
             >
               NEWS
             </Link>
-            <Link
+            <Link style={this.props.location.pathname.toString() == '/news/create' ? this.hightLight : {} }
               className="navbar-brand text-white text-lg brand-text"
               to="/news/create"
             >
@@ -29,4 +36,6 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+}
+
+export default withRouter(Navbar);

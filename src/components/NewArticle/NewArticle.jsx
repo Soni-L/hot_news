@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createArticle } from '../../actions/newsActions';
 
 import './NewArticle.styles.scss';
@@ -20,7 +21,8 @@ export class NewArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    this.props.createArticle({ title: this.state.title, body: this.state.body });
+    this.props.history.push("/news");
     this.setState({ title: '', body: '' });
   };
 
@@ -66,6 +68,6 @@ const mapStateToProps = state => ({
   news: state.news
 });
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
   createArticle
-})(NewArticle);
+})(NewArticle));

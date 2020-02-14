@@ -5,7 +5,7 @@ import { createArticle } from '../../actions/newsActions';
 
 export class NewsDashboard extends Component {
   componentDidMount() {
-    console.log(this.props.news);
+    //console.log(this.props.news);
   }
 
   render() {
