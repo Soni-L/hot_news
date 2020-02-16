@@ -8,7 +8,6 @@ export const createArticle = text => dispatch => {
 };
 
 export const deleteArticle = text => dispatch => {
-  alert("delete article: " + text);
   dispatch({
     type: DELETE_NEWS_ARTICLE,
     payload: text

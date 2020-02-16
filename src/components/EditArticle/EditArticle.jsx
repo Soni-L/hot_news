@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
+import moment from 'moment';
+
 import { deleteArticle } from '../../actions/newsActions';
 
 export class EditArticle extends Component {
@@ -21,6 +23,9 @@ export class EditArticle extends Component {
     const newsArticle = this.props.news.news.find((element) => element.timestamp == timestamp);
     if (newsArticle) {
       const { title, body, author, date } = newsArticle;
+
+      let friendlyDate = moment(date).format('h:mm:ss A, MMM-DD-YYYY');
+
       return (
         <div className="jumbotron jumbotron-fluid mt-5 new-article">
           <div className="col-md-12">
@@ -34,7 +39,7 @@ export class EditArticle extends Component {
               {author ? "author: " + author : ''}
             </p>
             <p>
-              {date ? "published on: " + date : ""}
+              {friendlyDate}
             </p>
             <button className='btn btn-primary' onClick={(e) => this.handleDelete(e, timestamp)}>
               Delete
@@ -44,11 +49,12 @@ export class EditArticle extends Component {
       );
     }
     else {
-      return (<div>
-        <h1 style={{ textAlign: 'center', color : 'red' }}>
-          The article you are looking for, has been deleted or does not exist!
-        </h1>
-      </div>)
+      // return (<div>
+      //   <h1 style={{ textAlign: 'center', color : 'red' }}>
+      //     The article you are looking for, has been deleted or does not exist!
+      //   </h1>
+      // </div>)
+      return <Redirect to='/news' />;
     }
 
   }
