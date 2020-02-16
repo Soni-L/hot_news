@@ -21,9 +21,9 @@ export class NewArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createArticle({ title: this.state.title, body: this.state.body });
+    this.props.createArticle({ title: this.state.title, body: this.state.body, author: this.state.author , date : this.state.date});
     this.props.history.push("/news");
-    this.setState({ title: '', body: '' });
+    this.setState({ title: '', body: '', author: '', date : '' });
   };
 
   handleChange = event => {
@@ -35,33 +35,53 @@ export class NewArticle extends Component {
   render() {
     return (
       <div className="jumbotron jumbotron-fluid mt-5 new-article">
-        
+
         <form className="create-article-form" onSubmit={this.handleSubmit}>
-        <h2>Create a new article</h2>
+          <h2>Create a new article</h2>
 
           <input
             className="input-form"
-            style={{width : '500px'}}
+            style={{ width: '500px' }}
             name="title"
             type="text"
             value={this.state.title}
             placeholder="Headline"
             onChange={this.handleChange}
             required
-          /> 
+          />
 
           <textarea
             className="input-form"
-            style={{width : '500px', height : "200px"}}
+            style={{ width: '500px', height: "200px" }}
             name="body"
             type="textarea"
             value={this.state.body}
             onChange={this.handleChange}
-            placeholder="Article"
+            placeholder="Description"
             required
           />
 
-          <input className='input-form' type="submit" value="Submit" />
+          <input
+            className="input-form"
+            name="author"
+            type="text"
+            value={this.state.author}
+            placeholder="Author"
+            onChange={this.handleChange}
+            required
+          />
+
+          <input
+            className="input-form"
+            name="date"
+            type="datetime-local"
+            value={this.state.date}
+            placeholder="Date"
+            onChange={this.handleChange}
+            required
+          />
+
+          <input className='input-form' type="submit" value="Create" />
         </form>
       </div>
     );
