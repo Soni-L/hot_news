@@ -1,11 +1,15 @@
 .new-article {
-  display: block;
-  margin-left: 20px;
-  margin-right: auto;
+  text-align: center;
 
-  .input-form {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .create-article-form {
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: auto;
+
+    .input-form {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
 }

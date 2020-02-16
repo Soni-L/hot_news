@@ -34,10 +34,11 @@ export class NewArticle extends Component {
 
   render() {
     return (
-      <div className="new-article">
+      <div className="jumbotron jumbotron-fluid mt-5 new-article">
+        
+        <form className="create-article-form" onSubmit={this.handleSubmit}>
         <h2>Create a new article</h2>
 
-        <form onSubmit={this.handleSubmit}>
           <input
             className="input-form"
             name="title"
@@ -57,7 +58,7 @@ export class NewArticle extends Component {
             required
           />
 
-          <input type="submit" value="Submit" />
+          <input className='input-form' type="submit" value="Submit" />
         </form>
       </div>
     );

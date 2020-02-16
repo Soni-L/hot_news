@@ -3,15 +3,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createArticle } from '../../actions/newsActions';
 
+import NewsCard from '../NewsCard/NewsCard';
+
 export class NewsDashboard extends Component {
   componentDidMount() {
-    //console.log(this.props.news);
+    
   }
 
   render() {
+    console.log( "in today's news: ");
+    console.log(  this.props.news.news);
+
+    const { news } = this.props.news;
+    let content = '';
+    content = (news && news.length > 0)
+        ? news.map((article, index) => (
+          <NewsCard key={index} title={article.title} body={article.body} />
+        ))
+        : null;
+
     return (
       <div className="jumbotron jumbotron-fluid mt-5 text-center">
-        <h1 className="display-4 mb-3">test!</h1>
+        {content}
       </div>
     );
   }
