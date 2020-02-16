@@ -21,9 +21,10 @@ export class NewArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.createArticle({ title: this.state.title, body: this.state.body, author: this.state.author , date : this.state.date});
-    this.props.history.push("/news");
-    this.setState({ title: '', body: '', author: '', date : '' });
+    let timestamp = new Date().getTime();
+    this.props.createArticle({ title: this.state.title, body: this.state.body, author: this.state.author , date : this.state.date, timestamp : timestamp});
+    this.props.history.push("/news");  
+    // this.setState({ title: '', body: '', author: '', date : '' , author: ''});
   };
 
   handleChange = event => {
@@ -68,7 +69,6 @@ export class NewArticle extends Component {
             value={this.state.author}
             placeholder="Author"
             onChange={this.handleChange}
-            required
           />
 
           <input
@@ -78,7 +78,6 @@ export class NewArticle extends Component {
             value={this.state.date}
             placeholder="Date"
             onChange={this.handleChange}
-            required
           />
 
           <input className='input-form' type="submit" value="Create" />

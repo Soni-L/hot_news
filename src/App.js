@@ -8,9 +8,10 @@ import Navbar from './components/layout/Navbar';
 import HomePage from './components/HomePage/HomePage';
 import NewsDashboard from './components/NewsDashboard/NewsDashboard';
 import NewArticle from './components/NewArticle/NewArticle';
+import EditArticle from './components/EditArticle/EditArticle';
 
 import store from './store';
-import EditArticle from './components/EditArticle/EditArticle';
+
 
 class App extends Component {
   render() {

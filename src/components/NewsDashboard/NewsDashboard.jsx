@@ -11,14 +11,11 @@ export class NewsDashboard extends Component {
   }
 
   render() {
-    console.log( "in today's news: ");
-    console.log(  this.props.news.news);
-
     const { news } = this.props.news;
     let content = '';
     content = (news && news.length > 0)
         ? news.map((article, index) => (
-          <NewsCard key={index} title={article.title} body={article.body} />
+          <NewsCard key={index} title={article.title} body={article.body} author={article.author} date={article.date} timestamp={article.timestamp} />
         ))
         : <h1>All Quiet on the Western Front!</h1>;
 
