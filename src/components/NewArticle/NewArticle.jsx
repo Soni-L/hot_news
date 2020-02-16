@@ -15,16 +15,12 @@ export class NewArticle extends Component {
       body: ''
     };
   }
-  componentDidMount() {
-    //console.log(this.props.news);
-  }
 
   handleSubmit = event => {
     event.preventDefault();
     let timestamp = new Date().getTime();
     this.props.createArticle({ title: this.state.title, body: this.state.body, author: this.state.author , date : this.state.date, timestamp : timestamp});
-    this.props.history.push("/news");  
-    // this.setState({ title: '', body: '', author: '', date : '' , author: ''});
+    this.props.history.push("/news"); 
   };
 
   handleChange = event => {
@@ -80,7 +76,7 @@ export class NewArticle extends Component {
             onChange={this.handleChange}
           />
 
-          <input className='input-form' type="submit" value="Create" />
+          <input className='input-form btn btn-primary' type="submit" value="Create" />
         </form>
       </div>
     );

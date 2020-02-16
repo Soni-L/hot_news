@@ -12,11 +12,6 @@ export class NewsCard extends Component {
       body: ''
     };
   }
-
-  componentDidMount() {
-    console.log("article_display");
-  }
-
   handleClick = event => {
     this.props.history.push("/news/");
   };
@@ -29,9 +24,12 @@ export class NewsCard extends Component {
           <h2>
             {title}
           </h2>
-          <h5>
-            {body}
-          </h5>
+          <p>
+            {author ? "author: " + author : ''}
+          </p>
+          <p>
+            {date ? "published on: " + date : '' }
+          </p>
         </div>
       </Link>
 
