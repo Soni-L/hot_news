@@ -41,20 +41,23 @@ export class NewArticle extends Component {
 
           <input
             className="input-form"
+            style={{width : '500px'}}
             name="title"
             type="text"
             value={this.state.title}
+            placeholder="Headline"
             onChange={this.handleChange}
-            label="title"
             required
-          />
-          <input
+          /> 
+
+          <textarea
             className="input-form"
+            style={{width : '500px', height : "200px"}}
             name="body"
             type="textarea"
             value={this.state.body}
             onChange={this.handleChange}
-            label="body"
+            placeholder="Article"
             required
           />
 

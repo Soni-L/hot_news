@@ -5,7 +5,7 @@ import './HomePage.styles.scss';
 function HomePage() {
   return (
     <div className="jumbotron jumbotron-fluid mt-5 text-center">
-      <h1 className="display-4 mb-3">Hello! I'm an empty a HomePage</h1>
+      <h1>Hello! I'm an empty a Home Page.</h1>
     </div>
   );
 }

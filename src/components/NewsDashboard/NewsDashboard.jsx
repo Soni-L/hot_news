@@ -20,7 +20,7 @@ export class NewsDashboard extends Component {
         ? news.map((article, index) => (
           <NewsCard key={index} title={article.title} body={article.body} />
         ))
-        : null;
+        : <h1>All Quiet on the Western Front!</h1>;
 
     return (
       <div className="jumbotron jumbotron-fluid mt-5 text-center">
