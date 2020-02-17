@@ -19,13 +19,18 @@ export class NewsDashboard extends Component {
     this.setState({ redirect: true });
   };
 
+  
+
   render() {
     const { news } = this.props.news;
+
     let content = '';
     content = (news && news.length > 0)
-      ? news.map((article, index) => (
-        <NewsCard key={index} title={article.title} body={article.body} author={article.author} date={article.date} timestamp={article.timestamp} />
-      ))
+      ? news
+        .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
+        .map((article, index) => (
+          <NewsCard key={index} title={article.title} body={article.body} author={article.author} date={article.date} timestamp={article.timestamp} />
+        ))
       : <h1>All Quiet on the Western Front!</h1>;
 
     if (this.state.redirect == true) {
@@ -34,7 +39,7 @@ export class NewsDashboard extends Component {
     else {
       return (
         <div>
-          <button className="btn btn-primary" style={{margin : "20px", padding :"5px"}} onClick={() => this.handleCreate()}>
+          <button className="btn btn-primary" style={{ margin: "20px", padding: "5px" }} onClick={() => this.handleCreate()}>
             Create Article
             </button>
           <div className="jumbotron text-center">
